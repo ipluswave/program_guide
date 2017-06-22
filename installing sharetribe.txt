@@ -61,7 +61,7 @@ wget http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb
 sudo dpkg -i mysql-apt-config_0.6.0-1_all.deb
 sudo apt-get update
 sudo apt-get install mysql-server
-- root password: hazrati57.
+
 sudo mysql_secure_installation
 mysql --version
 sudo mysql_install_db
@@ -159,9 +159,5 @@ UPDATE people SET deleted = '0' WHERE id = 'M5NTCq3vsKLtet394twkLg';
 UPDATE people SET is_admin = '1' WHERE id = 'nsOiiaINr-osZy0MAkyAYw';
 
 app/views/devise/mailder/confirmation_inscructions.haml
-
-Admin
-email: alain221@mail.com
-password: company123.
 
 bundle update      // for etsy gem dependancy
