@@ -151,13 +151,21 @@ RAILS_ENV=production bundle exec script/delayed_job start
 rails server -b 0.0.0.0 -e production -d
 
 confirmation email:
+USE sharetribe_production;
 UPDATE communities SET domain = 'ec2-35-161-51-178.us-west-2.compute.amazonaws.com', use_domain = true WHERE id = 1;
+UPDATE communities SET domain = 'beta.hazrati.com', use_domain = true WHERE id = 1;
+UPDATE communities SET domain = 'beta.hazrati.com', use_domain = false WHERE id = 1;
 
 recover admin
 UPDATE people SET deleted = '0' WHERE id = 'M5NTCq3vsKLtet394twkLg';
 
 UPDATE people SET is_admin = '1' WHERE id = 'nsOiiaINr-osZy0MAkyAYw';
 
+confirmation email customization:
 app/views/devise/mailder/confirmation_inscructions.haml
+
+fix domain on confirmation email:
+app/models/community.rb
+app/mailers/person_mailer.rb	line: 269
 
 bundle update      // for etsy gem dependancy

@@ -1,0 +1,3 @@
+Gems
+Code style check gem		: Rubocop
+Cron job Gem			: whenever
