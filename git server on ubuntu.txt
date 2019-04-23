@@ -2,17 +2,30 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-git-ser
 su -
 useradd git
 passwd git
+usermod -aG sudo git
 sudo apt-get install git
 ;sudo apt-get install git-core
 su git
 su -  git
+// in home directory
+sudo mkdir git
 // in home/git directory
 git init --bare my-project.git
 find /home/git/ -type d -exec sudo chmod 777 {} \;
 find /home/git/ -type f -exec sudo chmod 777 {} \;
 
+If you see error 'Permission denied (publickey)'
+(sudo) nano /etc/ssh/sshd_config
+ PubKeyAuthentication Yes
+ #PasswordAuthentication no 
 
+to
 
+ PubkeyAuthentication no
+ PasswordAuthentication yes
+
+sudo systemctl restart sshd
+sudo service sshd restart
 
 on local
 git remote set-url origin git@git.droplet.com:my-project.git
